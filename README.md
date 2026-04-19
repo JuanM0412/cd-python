@@ -32,3 +32,7 @@ Actualmente al ciclo completo de DevOps, aunque robusto, todavía puede sumar:
 *   **Experiencia general:** Es inmensamente más tranquilo desarrollar. La red de seguridad permite iterar rápido.
 *   **Útil:** Encontrar errores de regresión (saber de inmediato cuando rompiste algo anterior) y no perder tiempo recordando comandos de despliegue o conexión por SSH.
 *   **No tan útil (o frustrante):** La demora de los pipelines. Esperar minutos para que Terraform haga su validación y los contenedores hagan el build tras haber corregido un error tipográfico sencillo puede volver lento el proceso de feedback final frente a pruebas puramente locales.
+
+### Terraform Outputs
+- ALB URL Staging: http://calculadora-staging-alb-31869650.us-east-1.elb.amazonaws.com/
+- ALB URL Production: http://calculadora-production-alb-1814526292.us-east-1.elb.amazonaws.com/
