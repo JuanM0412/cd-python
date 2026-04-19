@@ -20,7 +20,7 @@ def index():
         try:
             num1 = float(request.form["num1"])
             operacion = request.form["operacion"]
-            
+
             num2_str = request.form.get("num2", "")
             num2 = float(num2_str) if num2_str else 0.0
 

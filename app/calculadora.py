@@ -35,7 +35,7 @@ def dividir(a, b):
 
 def potencia(a, b):
     """Eleva el primer número a la potencia del segundo."""
-    return a ** b
+    return a**b
 
 
 def raiz_cuadrada(a):
@@ -45,4 +45,4 @@ def raiz_cuadrada(a):
     """
     if a < 0:
         raise ValueError("No se puede calcular la raíz cuadrada de un número negativo")
-    return a ** 0.5
+    return a**0.5
