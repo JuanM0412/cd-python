@@ -38,6 +38,21 @@ def test_index_post_dividir_by_zero(client):
     assert response.status_code == 200
     assert b'Error: No se puede dividir por cero' in response.data
 
+def test_index_post_potencia(client):
+    response = client.post('/', data={'num1': '2', 'num2': '3', 'operacion': 'potencia'})
+    assert response.status_code == 200
+    assert b'8.0' in response.data
+
+def test_index_post_raiz_cuadrada(client):
+    response = client.post('/', data={'num1': '9', 'operacion': 'raiz_cuadrada'})
+    assert response.status_code == 200
+    assert b'3.0' in response.data
+
+def test_index_post_raiz_cuadrada_negativa(client):
+    response = client.post('/', data={'num1': '-1', 'operacion': 'raiz_cuadrada'})
+    assert response.status_code == 200
+    assert b'Error: No se puede calcular la ra\xc3\xadz cuadrada de un n\xc3\xbamero negativo' in response.data
+
 def test_index_post_invalid_operation(client):
     response = client.post('/', data={'num1': '6', 'num2': '3', 'operacion': 'invalid'})
     assert response.status_code == 200

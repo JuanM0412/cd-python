@@ -4,7 +4,7 @@ Módulo principal de la aplicación web Flask para la calculadora.
 
 import os
 from flask import Flask, render_template, request
-from .calculadora import sumar, restar, multiplicar, dividir
+from .calculadora import sumar, restar, multiplicar, dividir, potencia, raiz_cuadrada
 
 app = Flask(__name__)
 
@@ -19,8 +19,10 @@ def index():
     if request.method == "POST":
         try:
             num1 = float(request.form["num1"])
-            num2 = float(request.form["num2"])
             operacion = request.form["operacion"]
+            
+            num2_str = request.form.get("num2", "")
+            num2 = float(num2_str) if num2_str else 0.0
 
             if operacion == "sumar":
                 resultado = sumar(num1, num2)
@@ -30,10 +32,17 @@ def index():
                 resultado = multiplicar(num1, num2)
             elif operacion == "dividir":
                 resultado = dividir(num1, num2)
+            elif operacion == "potencia":
+                resultado = potencia(num1, num2)
+            elif operacion == "raiz_cuadrada":
+                resultado = raiz_cuadrada(num1)
             else:
                 resultado = "Operación no válida"
-        except ValueError:
-            resultado = "Error: Introduce números válidos"
+        except ValueError as e:
+            if "raíz cuadrada" in str(e):
+                resultado = f"Error: {str(e)}"
+            else:
+                resultado = "Error: Introduce números válidos"
         except ZeroDivisionError:
             resultado = "Error: No se puede dividir por cero"
 
