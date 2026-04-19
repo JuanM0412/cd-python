@@ -12,7 +12,7 @@ El nuevo pipeline automatiza todo el ciclo de vida del código, desde el cambio 
 
 ### 2. Infraestructura como código (Terraform) vs Despliegue Manual
 *   **Ventajas:** Es reproducible, está versionado, y elimina los errores humanos típicos de "hacer clics" en la consola de AWS. Permite destruir y levantar todo en minutos.
-*   **Desventajas:** La curva de aprendizaje es alta, y el manejo del "estado" de Terraform (`terraform.tfstate`) puede de sincronizarse si se hacen cambios manuales por error.
+*   **Desventajas:** La curva de aprendizaje es alta, y el manejo del "estado" de Terraform (`terraform.tfstate`) puede desincronizarse si se hacen cambios manuales por error.
 *   **Experiencia con HCL:** Resulta ser muy declarativo y legible; en lugar de programar el "cómo" conectar cosas, se define el "qué" se quiere, lo cual facilita entender la arquitectura leyendo código.
 
 ### 3. Entorno de Staging en AWS: Velocidad vs. Seguridad
@@ -34,5 +34,5 @@ Actualmente al ciclo completo de DevOps, aunque robusto, todavía puede sumar:
 *   **No tan útil (o frustrante):** La demora de los pipelines. Esperar minutos para que Terraform haga su validación y los contenedores hagan el build tras haber corregido un error tipográfico sencillo puede volver lento el proceso de feedback final frente a pruebas puramente locales.
 
 ### Terraform Outputs
-- ALB URL Staging: http://calculadora-staging-alb-995035503.us-east-1.elb.amazonaws.com/
-- ALB URL Production: http://calculadora-production-alb-1814526292.us-east-1.elb.amazonaws.com/
+- ALB URL Staging: http://calculadora-staging-alb-1227608249.us-east-1.elb.amazonaws.com/
+- ALB URL Production: http://calculadora-production-alb-294547370.us-east-1.elb.amazonaws.com/
